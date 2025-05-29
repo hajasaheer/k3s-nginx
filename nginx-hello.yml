@@ -8,7 +8,7 @@ data:
     <html>
       <head><title>Hello from CI/CD</title></head>
       <body>
-        <h1>Hello from Jenkins Pipeline! 🚀</h1>
+        <h1>Hello from Jenkins Pipeline asdasdasdasdsa! 🚀</h1>
         <p>Deployed at: {{ .Release.Time }}</p>
       </body>
     </html>
@@ -52,3 +52,4 @@ spec:
   - port: 80
     targetPort: 80
     nodePort: 30080  # Accessible via http://192.168.56.101:30080
+
