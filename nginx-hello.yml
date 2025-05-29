@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-index
+data:
+  index.html: |
+    <html>
+      <head><title>Hello from CI/CD</title></head>
+      <body>
+        <h1>Hello from Jenkins Pipeline! 🚀</h1>
+        <p>Deployed at: {{ .Release.Time }}</p>
+      </body>
+    </html>
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-hello
+  template:
+    metadata:
+      labels:
+        app: nginx-hello
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: html
+        configMap:
+          name: nginx-index
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-hello-svc
+spec:
+  type: NodePort
+  selector:
+    app: nginx-hello
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30080  # Accessible via http://192.168.56.101:30080
