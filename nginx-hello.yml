@@ -9,7 +9,6 @@ data:
       <head><title>Hello from CI/CD</title></head>
       <body>
         <h1>Hello from Jenkins Pipeline ! 🚀</h1>
-        <p>Deployed at: {{ .Release.Time }}</p>
       </body>
     </html>
 ---
