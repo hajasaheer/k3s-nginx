@@ -14,6 +14,8 @@ Vagrantfile:- (Available in the repository)
 
 Ansible Inventory inventory.ini:- (Available in the repository)
 
+Ansible Playbook site.yml:- Ansible Playbook site.yml
+
 **2. Deploy Nginx Hello World App on K3s**
 
 Kubernetes Manifest nginx-hello.yaml:- (Available in the repository)
