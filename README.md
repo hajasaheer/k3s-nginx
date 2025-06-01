@@ -30,4 +30,4 @@ Created Jenkins Pipeline Job with inline script::- (Available in the repository)
 
 ●​ Configured poll SCM to check every minute in the repo for changes​
 
-**5. Tested the application**
+**5. Test the application**
